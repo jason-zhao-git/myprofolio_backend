@@ -31,8 +31,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECRET_KEY = 'django-insecure-z0f)kbokian4%kg*zah0y*k0k4=*i62bdsp!&v_q!r^c=efe4^'
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 ALLOWED_HOSTS = [".vercel.app", "*"]
 
 
