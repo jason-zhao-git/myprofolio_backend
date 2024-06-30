@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-from pathlib import Path
-from dotenv import load_dotenv
 import environ
 
 
@@ -24,9 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+env = environ.Env()
 
 # Read .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -35,9 +31,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECRET_KEY = 'django-insecure-z0f)kbokian4%kg*zah0y*k0k4=*i62bdsp!&v_q!r^c=efe4^'
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".vercel.app", "*"]
 
 
 # Application definition
@@ -70,9 +66,9 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-#'http://localhost:3000', 
+# 
 CORS_ALLOWED_ORIGINS = [
-    'https://jingqiaozhao.dev'  # URL of Next.js frontend
+    'http://localhost:3000', 'https://jingqiaozhao.dev'  # URL of Next.js frontend
 ]
 
 REST_FRAMEWORK = {
